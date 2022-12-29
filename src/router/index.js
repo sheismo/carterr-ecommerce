@@ -1,20 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import HomePage from '../views/company/HomePage.vue'
+import ShopPage from '../views/company/ShopPage.vue'
+import AuthPage from '../views/auth/AuthPage.vue'
+import ContactPage from '../views/company/ContactPage.vue'
+import UserDashboard from '../views/user/UserDashboard.vue'
+import UserCart from '../views/user/UserCart.vue'
+
+const AboutPage =  () => import('../views/company/AboutPage.vue')
+const NotFound = () => import('../views/NotFound.vue')
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+  { path: '/', name: 'home', component: HomePage },
+  { path: '/about', name: 'about', component: AboutPage },
+  { path: '/shop', name: 'shop', component: ShopPage },
+  { path: '/contact-us', name: 'contact-us', component: ContactPage },
+  { path: '/auth', name: 'auth', component: AuthPage },
+  { path: '/search-results', name: 'Search Results', component: UserDashboard },
+  { path: '/cart', name: 'Cart', component: UserCart },
+  { path: '/:notFound(.*)', name: 'NotFound', component: NotFound }
 ]
 
 const router = createRouter({
