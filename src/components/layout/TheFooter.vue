@@ -138,6 +138,7 @@ input {
         width: 85%;
         margin: 5% auto 0;
     }
+
     .first h4 {
         font-size: 1.1rem;
     }
@@ -178,7 +179,6 @@ input {
         width: 100%;
         padding: 5%;
         flex-direction: column;
-        /* align-items: center; */
     }
 
     .first, .second, .third, .fourth {

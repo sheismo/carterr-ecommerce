@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
 //import authModule from './modules/auth/index.js
+import productsModule from './modules/products/index.js'
 
  const store = createStore({
   state: {
@@ -12,6 +13,7 @@ import { createStore } from 'vuex'
   actions: {
   },
   modules: {
+    products: productsModule
   }
 })
 

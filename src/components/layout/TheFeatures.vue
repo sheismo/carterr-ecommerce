@@ -23,11 +23,11 @@
             </div>
         </div>
         <div>
+            <font-awesome-icon icon="fa-solid fa-wallet" size="sm" class="icon" />
             <div class="feature">
                 <p>Secure Payment</p>
                 <p>Secure Payment methods</p>
             </div>
-            <font-awesome-icon icon="fa-solid fa-wallet" size="sm" class="icon" />
         </div>
     </div>
   </section>
@@ -122,11 +122,13 @@ section {
     .features {
         flex-direction: column;
         align-items: center;
+
     }
 
     .features > div {
         width: 100%;
         margin: 30px auto;
+        flex-direction: row-reverse;
     }
 
     .feature p:first-of-type, .feature p:last-of-type {

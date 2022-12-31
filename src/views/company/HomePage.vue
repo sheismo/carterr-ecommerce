@@ -4,7 +4,7 @@
       <displayed-products></displayed-products>
       <the-features></the-features>
       <discount-sale></discount-sale>
-      <!-- <bestseller-products></bestseller-products> -->
+      <bestseller-products></bestseller-products>
       <partner-brands></partner-brands>
     </div>
 </template>
@@ -15,6 +15,7 @@ import DisplayedProducts from '@/components/products/DisplayedProducts.vue'
 import TheFeatures from '@/components/layout/TheFeatures.vue'
 import PartnerBrands from '@/components/layout/PartnerBrands.vue'
 import DiscountSale from '@/components/products/DiscountSale.vue'
+import BestsellerProducts from '@/components/products/BestsellerProducts.vue'
 // @ is an alias to /src
 
 export default {
@@ -23,8 +24,9 @@ export default {
     HomeBanner,
     DisplayedProducts,
     TheFeatures,
+    DiscountSale,
+    BestsellerProducts,
     PartnerBrands,
-    DiscountSale
   }
 }
 </script>

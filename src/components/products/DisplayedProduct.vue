@@ -6,7 +6,7 @@
         <base-button link to="/shop" :mode="mode" >Browse</base-button>
     </div>
     <div>
-        <img src="@/assets/products-images/phones/iPhone14promax.png" :alt="product.category">
+        <img :src="product.image" :alt="product.category">
     </div>
   </div>
 </template>
@@ -44,6 +44,7 @@ export default {
 /* Base styling for all cards */
 .card {
     width: 48%;
+    height: 250px;
     margin: 1rem 0;
     padding: 2rem;
     border-radius: 1rem;
@@ -134,6 +135,7 @@ img {
 @media (min-width: 481px) and (max-width: 768px) {
     .card {
         width: 100%;
+        height: 280px;
     }
 }
 
@@ -152,11 +154,12 @@ img {
 @media (max-width: 300px) {
     .card {
         flex-direction: column;
+        padding: 1rem;
     }
 
     .card div {
         width: 95%;
-        margin: 10px 0;
+        margin: 5px 0;
     } 
 }
 </style>

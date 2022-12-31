@@ -24,22 +24,22 @@ export default {
                 {
                     id: '01',
                     category: 'phones',
-                    image: '@/assets/products-images/phones/iPhone14.png'
+                    image: require('@/assets/products-images/phones/iPhone14promax.png')
                 },
                 {
                     id: '02',
                     category: 'laptops',
-                    // image: ''
+                    image: require('@/assets/products-images/laptops/hppavilion.png')
                 },
                 {
                     id: '03',
                     category: 'consoles',
-                    // image: ''
+                    image: require('@/assets/products-images/gaming-consoles/sonyps4slimplaystation.png')
                 },
                 {
                     id: '01',
                     category: 'headphones',
-                    // image: ''
+                    image: require('@/assets/products-images/headphones/BeatsSolo3.png')
                 }
             ]
         }
