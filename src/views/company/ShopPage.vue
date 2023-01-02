@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <h1>This is our shop</h1>
-  </div>
+  <all-products></all-products>
 </template>
 
 <script>
-export default {
+import AllProducts from '@/components/shop/AllProducts.vue';
 
+export default {
+  name: 'ShopPage',
+  components: {
+    AllProducts
+  }
 }
 </script>
 

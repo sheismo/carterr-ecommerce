@@ -187,6 +187,78 @@ export default {
                 description: 
                 'iPhone 14 promax with 6GB RAM 256GB Storage. 4323mAh Li-Ion Battery. 6.7" and 240 grams. iOS 16.x - Apple Bionic A16 processor. 3D Face Unlock. Dual Sim(Nano Sim and eSim). Available in Space Black, Silver, Gold and Deep Purple.',
                 image: require('@/assets/products-images/phones/iPhone14promax.png')
+            },
+            {
+                id: '21',
+                category: 'phones',
+                name: 'Samsung Galaxy S22',
+                price: 1099,
+                description: 
+                'Samsung S22 6.1" Dynamic AMOLED Display. 8GB RAM 128/256GB Storage. 3700 mAh Battery - Supports Fast, Qi Wireless and Reverse Wireless Charging. Android 13. 2D Face Unlock, Ultrasonic in-screen fingerprint. Available in Phantom Black, White, Pink, Gold and Green.',
+                image: require('@/assets/products-images/phones/s22.png')
+            },
+            {
+                id: '22',
+                category: 'phones',
+                name: 'Samsung Galaxy S22 ultra',
+                price: 1299,
+                description: 
+                'Samsung S22 6.8" Dynamic AMOLED Display. 8GB RAM 128GB Storage. 5000 mAh Battery - Supports Fast, Qi Wireless and Reverse Wireless Charging. Android 13. 2D Face Unlock, Ultrasonic in-screen fingerprint. Available in Phantom Black, White, Burgundy and Green.',
+                image: require('@/assets/products-images/phones/s22ultra.png')
+            },
+            {
+                id: '23',
+                category: 'phones',
+                name: 'Samsung Galaxy S21',
+                price: 1199,
+                description: 
+                'The s21 comes with 6.2" Dynamic AMOLED Display. 8GB Ram 128/256GB Storage. 4000 mAh Li-Polymer Battery. Super Fast Charging nd Samsung\'s S Pen Snapdragon 888 chipset. 2D Face Unlock, Ultrasonic in-screen fingerprint. Available in Phantom Pink, Violet, Gray and Deep White.',
+                image: require('@/assets/products-images/phones/s21.png')
+            },
+            {
+                id: '24',
+                category: 'phones',
+                name: 'Samsung Galaxy S21 ultra 5G',
+                price: 1299,
+                description: 
+                'The headliner of the S21 series with 6.8" display (AMOLED Screen). 12GB Ram 128GB Storage. 5000mAh Li-Polymer Battery. Supports Wireless Charging and Samsung\'s S Pen Snapdragon 888 chipset. 2D Face unlock, Ultrasonic in-screen fingerprint. Available in Silver and Phantom Black',
+                image: require('@/assets/products-images/phones/s21ultra.png')
+            },
+            {
+                id: '25',
+                category: 'consoles',
+                name: 'Sony Playstation 4 Console',
+                price: 499,
+                description: 
+                'Sleek, powerful game console with an excellent controller and plenty of compelling titles. Optical Drive Blu- ray DVD RWController(s) 1 Dualshock 4 Wireless. 1TB Storage, Audio/Video, HDMI Networking Wi-Fi',
+                image: require('@/assets/products-images/gaming-consoles/sonyps4slimplaystation.png')
+            },
+            {
+                id: '26',
+                category: 'consoles',
+                name: 'Sony Playstation 5 Console',
+                price: 599,
+                description: 
+                ' 16GB GDDR6/256-bit - 448GB/s - Custom 825GB SSD - Optical Drive Ultra HD Blu-ray (66G/100G) ~10xCAV. Weighs 4.5kg. Audio/Video, HDMI Networking Wi-Fi. Ultra HD Blu-ray, up to 100GB/disc',
+                image: require('@/assets/products-images/gaming-consoles/sonyps5slimplaystation.png')
+            },
+            {
+                id: '27',
+                category: 'consoles',
+                name: 'Microsoft X-box Series X',
+                price: 549,
+                description: 
+                'X-box Series X with CPU 8x Cores @ 3.8 GHz (3.6 GHz w/ SMT) Custom Zen 2 CPU. Memory Info: 16 GB GDDR6 w/ 320b bus - 10GB @ 560 GB/s, 6GB @ 336 GB/s - 1 TB Custom NVME SSD. Optical Drive 4K UHD Blu-Ray Drive',
+                image: require('@/assets/products-images/gaming-consoles/xboxseriesx.png')
+            },
+            {
+                id: '28',
+                category: 'consoles',
+                name: 'Microsoft X-box Series S',
+                price: 349,
+                description: 
+                'Custom NVME SSD 512GB Storage. 1440p resolution and up to 120FPS. Ray-Tracing (RTX) Support. 1440p resolution and up to 120FPS. 4K (Media playback and upscaling only). Variable Rate Shading and Refresh Rate. Ultra-Low Latency',
+                image: require('@/assets/products-images/gaming-consoles/xboxseriess.png')
             }
 
         ]
