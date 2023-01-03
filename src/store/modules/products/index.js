@@ -15,7 +15,8 @@ export default {
                 price: 1029,
                 description: 
                 'The perfect ultra thin, lightweight, and compact computer with great power of portability to keep you connected anywhere you go. Intel Pentium Silver Processor and Intel UHD graphics with 15.6" diagonal display',
-                image: require('@/assets/products-images/laptops/hpchromebook.png')
+                image: require('@/assets/products-images/laptops/hpchromebook.png'),
+                discount: true
             },
             {
                 id: '02',
@@ -33,7 +34,7 @@ export default {
                 price: 1599,
                 description:
                 'HP Omen Gaming Laptop with AMD Ryzen™ 7 processor. NVIDIA® GeForce RTX™ 3060 Laptop GPU (6 GB GDDR6 dedicated). 16 GB memory; 1 TB SSD storage and 16.1" diagonal FHD display. Windows 11 Home',
-                image: require('@/assets/products-images/laptops/hpvictus.png'),
+                image: require('@/assets/products-images/laptops/hpomengaming.png'),
             },
             {
                 id: '04',
@@ -42,7 +43,7 @@ export default {
                 price: 1299,
                 description:
                 'HP Omen Gaming Laptop with Intel® i7 and AMD Ryzen 7 processors. NVIDIA GeForce RTX 30-series graphics. 16.1" display for immersive visual experience. Windows 11 Home',
-                image: require('@/assets/products-images/laptops/hpvictus.png'),
+                image: require('@/assets/products-images/laptops/hpomen.png'),
             },
             {
                 id: '05',
@@ -52,6 +53,7 @@ export default {
                 description:
                 '2020 Apple MacBook Air 13.3" with Retina Display, M1 Chip with 8-Core CPU and 7-Core GPU, 16GB Memory, 1TB SSD, 30W USB Type-C Power Adapter. Available in Grey and Silver colors.',
                 image: require('@/assets/products-images/laptops/macbookair2021.png'),
+                discount: true
             },
             {
                 id: '06',
@@ -132,7 +134,8 @@ export default {
                 price: 929,
                 description: 
                 'iPhone 13 4GB RAM 256GB Storage. 3240mAh Li-Ion Battery. 6.1" and 173 grams. iOS 15(upgradable to 16.2). Apple A15 Bionic chip. Face ID. Dual Sim(Nano Sim and eSim). Available in Red, Starlight, Pink, Green and Midnight colors.',
-                image: require('@/assets/products-images/phones/iPhone13.png')
+                image: require('@/assets/products-images/phones/iPhone13.png'),
+                discount: true
             },
             {
                 id: '15',
@@ -200,7 +203,7 @@ export default {
             {
                 id: '22',
                 category: 'phones',
-                name: 'Samsung Galaxy S22 ultra',
+                name: 'Samsung Galaxy S22 ultra 5G',
                 price: 1299,
                 description: 
                 'Samsung S22 6.8" Dynamic AMOLED Display. 8GB RAM 128GB Storage. 5000 mAh Battery - Supports Fast, Qi Wireless and Reverse Wireless Charging. Android 13. 2D Face Unlock, Ultrasonic in-screen fingerprint. Available in Phantom Black, White, Burgundy and Green.',
@@ -231,7 +234,8 @@ export default {
                 price: 499,
                 description: 
                 'Sleek, powerful game console with an excellent controller and plenty of compelling titles. Optical Drive Blu- ray DVD RWController(s) 1 Dualshock 4 Wireless. 1TB Storage, Audio/Video, HDMI Networking Wi-Fi',
-                image: require('@/assets/products-images/gaming-consoles/sonyps4slimplaystation.png')
+                image: require('@/assets/products-images/gaming-consoles/sonyps4slimplaystation.png'),
+                discount: true
             },
             {
                 id: '26',

@@ -1,5 +1,5 @@
 <template>
-    <div class="product" @click="viewProduct(product.id)">
+    <div class="product" @click="viewProduct()">
         <base-card class="card">
             <img :src="product.image" :alt="product.name">
         </base-card>

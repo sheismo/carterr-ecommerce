@@ -29,14 +29,4 @@ export default {
     background-color: #3d008d;
     color: white;
 }
-
-.backend {
-    background-color: #71008d;
-    color: white;
-}
-
-.career {
-    background-color: #8d006e;
-    color: white;
-}
 </style>

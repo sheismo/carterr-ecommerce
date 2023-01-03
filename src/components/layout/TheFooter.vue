@@ -18,10 +18,18 @@
     <!-- Website Quick Links -->
     <div class="second">
         <h5>Quick Links</h5>
-        <p>Home</p>
-        <p>About</p>
-        <p>Shop</p>
-        <p>Contact Us</p>
+        <p>
+            <router-link to="/">Home</router-link>
+        </p>
+        <p>
+            <router-link to="/about">About</router-link>
+        </p>
+        <p>
+            <router-link to="/shop">Shop</router-link>
+        </p>
+        <p>
+            <router-link to="/contact-us">Contact Us</router-link>
+        </p>
     </div>
 
     <!-- Business Contact Address -->
@@ -110,6 +118,11 @@ h5 {
 
 p {
     font-size: 0.75rem;
+    color: #030303;
+}
+
+p > a {
+    text-decoration: none;
     color: #030303;
 }
 

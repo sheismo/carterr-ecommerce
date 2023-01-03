@@ -7,7 +7,7 @@ import store from './store/index.js'
 import BaseCard from './components/ui/BaseCard.vue'
 import BaseButton from './components/ui/BaseButton.vue'
 // import BaseBadge from './components/ui/BaseBadge.vue'
-// import BaseSpinner from './components/ui/BaseSpinner.vue'
+import BaseSpinner from './components/ui/BaseSpinner.vue'
 // const BaseModal = defineAsyncComponent(() => import('./components/ui/BaseModal.vue'))
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,7 +28,7 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('base-card', BaseCard)
 app.component('base-button', BaseButton)
 // app.component('base-badge', BaseBadge)
-// app.component('base-spinner', BaseSpinner)
+app.component('base-spinner', BaseSpinner)
 // app.component('base-modal', BaseModal)
 
 app.mount('#app')

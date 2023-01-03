@@ -47,6 +47,11 @@ export default {
     components: {
         ProductItem
     },
+    data() {
+        return {
+            isLoading: false
+        }
+    },
     computed: {
         laptops() {
             const products = this.$store.getters['products/allProducts']
