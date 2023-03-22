@@ -1,12 +1,17 @@
 <template>
   <div>
-    <h2>Contact Us</h2>
+    <contact-us></contact-us>
   </div>
 </template>
 
 <script>
-export default {
+import ContactUs from '@/components/shop/ContactUs.vue';
 
+export default {
+  name: 'ContactPage',
+  components: {
+    ContactUs
+  }
 }
 </script>
 

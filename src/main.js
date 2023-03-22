@@ -13,9 +13,9 @@ import BaseSpinner from './components/ui/BaseSpinner.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { faCartShopping, faMagnifyingGlass, faBars, faHouse, faMessage, faAddressCard, faRightToBracket, faTruck, faShieldHalved, faHeadset, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faMagnifyingGlass, faBars, faHouse, faMessage, faAddressCard, faRightToBracket, faTruck, faShieldHalved, faHeadset, faWallet, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faInstagram, faLinkedin, faFacebook} from '@fortawesome/free-brands-svg-icons'
-library.add(faCartShopping, faMagnifyingGlass, faTwitter, faInstagram, faLinkedin, faFacebook, faBars, faHouse, faMessage, faAddressCard, faRightToBracket, faTruck, faShieldHalved, faHeadset, faWallet )
+library.add(faCartShopping, faMagnifyingGlass, faTwitter, faInstagram, faLinkedin, faFacebook, faBars, faHouse, faMessage, faAddressCard, faRightToBracket, faTruck, faShieldHalved, faHeadset, faWallet, faLocationDot, faPhone )
 
 
 const app = createApp(App)
