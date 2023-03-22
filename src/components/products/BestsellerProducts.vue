@@ -23,7 +23,7 @@ export default {
         bestsellerProducts() {
             const  products = this.$store.getters['products/allProducts']
             const filteredProducts =  products.filter(product => {
-                if(product.name.includes('h') && product.price < 1000) {
+                if(product.name.includes('h') && product.price < 1200) {
                     return true;
                 }
             })
