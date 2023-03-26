@@ -5,6 +5,7 @@ import ShopPage from '../views/company/ShopPage.vue'
 import ProductPage from '../views/company/ProductPage.vue'
 import AuthPage from '../views/auth/AuthPage.vue'
 import ContactPage from '../views/company/ContactPage.vue'
+import SearchPage from '../views/company/SearchPage.vue'
 import UserDashboard from '../views/user/UserDashboard.vue'
 import UserCart from '../views/user/UserCart.vue'
 
@@ -18,7 +19,8 @@ const routes = [
   { path: '/shop/:id', name: 'product', component: ProductPage, props: true },
   { path: '/contact-us', name: 'contact-us', component: ContactPage },
   { path: '/auth', name: 'auth', component: AuthPage },
-  { path: '/search-results', name: 'Search Results', component: UserDashboard },
+  { path: '/search', name: 'Search Results', component: SearchPage, props: true },
+  { path: '/dashboard', name: 'UserDashboard', component: UserDashboard },
   { path: '/cart', name: 'Cart', component: UserCart },
   { path: '/:notFound(.*)', name: 'NotFound', component: NotFound }
 ]

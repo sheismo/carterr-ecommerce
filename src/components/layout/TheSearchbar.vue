@@ -1,9 +1,9 @@
 <template>
     <transition name="search" mode="out-in">
-        <section v-if="visible">
+        <section>
             <div>
-                <input type="search" name="search" id="search" placeholder="Search for an item..." required autofocus>
-                <base-button mode="search">Search</base-button>
+                <input type="search" name="search" id="search" placeholder="Search for an item..." v-model.trim="userInput" required autofocus>
+                <base-button mode="search" @click="search()">Search</base-button>
             </div>
         </section>
     </transition>
@@ -12,10 +12,17 @@
 <script>
 export default {
     name: 'TheSearchbar',
-    props: {
-        visible: {
-            type: Boolean,
-            required: true,
+    data() {
+        return {
+            userInput: ''
+        }
+    },
+    methods: {
+        search() {
+            if (this.userInput) {
+                this.$emit('search', this.userInput)
+                this.userInput = ''
+            } 
         }
     }
 }

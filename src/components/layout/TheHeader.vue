@@ -19,7 +19,7 @@
 
     <!-- Search, Menu & Cart Icons Login Button -->
     <div class="icons">
-      <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat class="icon" @click="toggleSearchBar" title="click me to hide/show searchbar"/>
+      <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat class="icon" @click="goToSearch" title="click to search"/>
       <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />
       <base-button class="login" link to="/auth" mode="login">login</base-button>
       <font-awesome-icon icon="fa-solid fa-bars" size="sm" class="icon mobileMenuIcon" @click="toggleMobileNavBar"
@@ -70,21 +70,14 @@
       </ul>
     </nav>
   </div>
-
-  <!-- Search Bar -->
-  <the-searchbar :visible="!!searchBarActive"></the-searchbar>
 </template>
 
 <script>
-import TheSearchbar from './TheSearchbar.vue'
-
 export default {
   name: 'TheHeader',
-  components: { TheSearchbar },
   data() {
     return {
       name: 'Carterr',
-      searchBarActive: false,
       mobileNavBarActive: false,
     }
   },
@@ -94,9 +87,8 @@ export default {
   //   }
   // },
   methods: {
-    toggleSearchBar() {
-      this.searchBarActive = !this.searchBarActive
-      console.log('hey')
+    goToSearch() {
+      this.$router.push('/search')
     },
     toggleMobileNavBar() {
       this.mobileNavBarActive = !this.mobileNavBarActive
