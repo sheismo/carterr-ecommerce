@@ -2,7 +2,8 @@
     <section>
         <!-- Search Bar -->
        <the-searchbar @search="returnSearchResults"></the-searchbar>
-       <h1>Your search results will be displayed below&#10024;</h1>
+       <h1 v-if="resultsAreAvailable">Your search results are displayed below&#10024;</h1>
+       <h1 v-else>Your search results will be displayed below&#10024;</h1>
        <!-- Search Results -->
         <div>
             <div v-if="isLoading">
@@ -49,6 +50,9 @@ export default {
                     product.name.toLowerCase().includes(searchTerm.toLowerCase())
                 )
             }
+            setTimeout(() => {
+                this.activeSearch = false
+            }, 5000)
         }
     },
     computed: {
@@ -56,7 +60,7 @@ export default {
             return this.searchResults && this.searchResults.length > 0
         },
         feedbackText() {
-            if (!this.results && this.activeSearch) {
+            if (!this.resultsAreAvailable && this.activeSearch) {
                 return 'No item matches your search!'
             }
             return 'Search for an item or check out our bestsellers.'
