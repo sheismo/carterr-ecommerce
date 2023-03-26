@@ -2,23 +2,23 @@
     <section>
         <div class="banner">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Obcaecati, possimus Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Cumque unde Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum sequi nihil quas minima iure velit. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Our e-commerce company offers a wide range of high-quality products at affordable prices. 
+                We have gadgets ranging from iPhones to gaming consoles and laptops, 
+                we have everything you need to make your life easier and more enjoyable. 
+                With fast shipping and excellent customer service, shopping with us is a breeze. 
+                Join our community of satisfied customers today! 
+            </p>
+            <p v-if="!mobileScreen">
+                Discover our online store, where we offer a variety of electronic devices/products that cater to all your needs. 
+                Our focus is to provide you with the best shopping experience by offering quality products, 
+                best prices, and exceptional customer service. Shop now and experience the difference with us.
             </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Animi magni. Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Quas, non Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Delectus Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ad assumenda magni non tempore, necessitatibus asperiores?
+                Our mission is to provide our customers with a convenient, hassle-free online shopping experience. 
+                We strive to offer a diverse range of high-quality products at the lowest prices possible, coupled with excellent customer service. 
+                Our goal is to become the go-to destination for all your shopping needs, all while exceeding your expectations.
             </p>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt repellendus mollitia 
-                lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                <i>All Rights Reserved. Carterr &copy; {{ currentYear }}</i>
-            </p>
+            <p><i>All Rights Reserved. Carterr &copy; {{ currentYear }}</i></p>
             <base-button link to="/shop" mode="red">Start shopping</base-button>
         </div>
     </section>
@@ -27,10 +27,29 @@
 <script>
 export default {
     name: 'AboutUs',
+    data() {
+        return {
+            mobileScreen: true
+        }
+    },
+    methods: {
+        isMobileScreen() {
+            if (window.matchMedia("(max-width: 480px)").matches) {
+                this.mobileScreen = true
+            } else {
+                this.mobileScreen = false
+            }
+        }
+    },
     computed: {
         currentYear() {
             return new Date().getFullYear()
         }
+    },
+    created() {
+        setInterval(() => {
+            this.isMobileScreen()
+        }, 500)
     }
 
 }
