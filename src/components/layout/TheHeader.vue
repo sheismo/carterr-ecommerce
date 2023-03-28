@@ -42,28 +42,28 @@
         <!-- Icon & Text for link to Shop Page  -->
         <li>
           <router-link to="/shop">
-            <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="mIon" />
+            <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="mIcon" />
             <span>Shop</span>
           </router-link>
         </li>
 
         <li>
           <router-link to="/about">
-            <font-awesome-icon icon="fa-solid fa-message" size="sm" class="mIon" />
+            <font-awesome-icon icon="fa-solid fa-message" size="sm" class="mIcon" />
             <span>About</span>
           </router-link>
         </li>
 
         <li>
           <router-link to="/contact-us">
-            <font-awesome-icon icon="fa-solid fa-address-card" size="sm" class="mIon" />
+            <font-awesome-icon icon="fa-solid fa-address-card" size="sm" class="mIcon" />
             <span>Contact Us</span>
           </router-link>
         </li>
         
         <li>
           <base-button link to="/auth" mode="login">
-            <font-awesome-icon icon="fa-solid fa-right-to-bracket" size="sm" class="mIon" />
+            <font-awesome-icon icon="fa-solid fa-right-to-bracket" size="sm" class="mIcon" />
             <span>login</span>
           </base-button>
         </li>
