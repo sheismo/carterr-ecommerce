@@ -1,6 +1,9 @@
 <template>
     <section>
-        <div>
+        <div class="back-button" title="Click to go to previous page" @click="goBack">
+            <font-awesome-icon icon="fa-solid fa-arrow-left"  size="sm" class="icon" />
+        </div>
+        <div class="container">
             <div class="image">
                 <img :src="product.image" :alt="product.name" class="product-image">
                 <!-- <i class="bi bi-chevron-left" @click="prev"></i>
@@ -113,6 +116,10 @@ export default {
             }
             // console.log(current, prev)
             image.src = this.mobileImages[prev].src
+        },
+        goBack () {
+            // window.history.back()
+            this.$router.go(-1)
         }
     },
     mounted() {
@@ -142,7 +149,26 @@ h1 {
     font-family: 'Work Sans', sans-serif;
 }
 
-section > div,
+.back-button {
+    margin: 20px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #147CFF;
+    color: #FFF;
+}
+
+.back-button .icon {
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+    font-size: 1rem;
+}
+
+.container,
 .counter-row {
     width: 100%;
     margin: 0 auto;
@@ -303,12 +329,12 @@ button:hover {
         width: 85%;
     }
 
-    section > div {
+    .container {
         width: 100%;
         margin: auto;
     }
 
-    section > div,
+    .container,
     .counter-row {
         flex-direction: row;
     }
@@ -419,12 +445,12 @@ button:hover {
         padding: 0;
     }
 
-    section > div {
+    .container {
         width: 95%;
         margin: auto;
     }
 
-    section > div,
+    .container,
     .counter-row {
         flex-direction: row;
     }
