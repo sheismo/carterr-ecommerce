@@ -34,7 +34,7 @@
                         <p class="plus" @click="increment">+</p>
                     </div>
                     <div class="button-div">
-                        <button><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
+                        <button  :disabled="disableButton"><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -73,6 +73,13 @@ export default {
         },
         currentPrice() {
             return this.product.discount ? this.product.price - this.product.price / 4 : this.product.price
+        },
+        disableButton() {
+            if (this.count === 0) {
+                return true
+            } else {
+                return false
+            }
         }
     },
     methods: {
@@ -321,6 +328,16 @@ button {
 button:hover {
     box-shadow: #FCE7D8 0px 7px 25px 10px;
     transform: scale(1.01)
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999;
+  background-color: #aaa;
+  color: #ccc;
+  cursor: not-allowed;
+  /* cursor: no-drop; */
+  pointer-events: none;
 }
 
 /* iPads and laptop screens */
