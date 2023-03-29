@@ -7,6 +7,8 @@ export default {
     namespaced: true,
     state() {
        return {
+        userCartQty: 6,
+        userCartItems: [],
         allProducts: [
             {
                 id: '01',

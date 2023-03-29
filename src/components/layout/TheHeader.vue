@@ -20,7 +20,10 @@
     <!-- Search, Menu & Cart Icons Login Button -->
     <div class="icons">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat class="icon" @click="goToSearch" title="click to search"/>
-      <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />
+      <div>
+        <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" /> 
+        <base-badge :title="noOfCartItems" :type="categoryOfCartItems"></base-badge>
+      </div>
       <base-button class="login" link to="/auth" mode="login">login</base-button>
       <font-awesome-icon icon="fa-solid fa-bars" size="sm" class="icon mobileMenuIcon" @click="toggleMobileNavBar"
         title="click me to hide/show navbar" />
@@ -93,6 +96,22 @@ export default {
     toggleMobileNavBar() {
       this.mobileNavBarActive = !this.mobileNavBarActive
     }
+  },
+  computed : {
+    noOfCartItems() {
+      return this.$store.getters['products/userCartQty']
+    },
+    categoryOfCartItems() {
+      if (this.noOfCartItems >= 0 && this.noOfCartItems <= 5) {
+        return 'lessThanFive'
+      } else if (this.noOfCartItems > 5 && this.noOfCartItems <= 10) {
+        return 'upToTen'
+      } else if (this.cartItems > 10) {
+        return 'overTen'
+      } else {
+        return null
+      }
+    }
   }
 }
 </script>
@@ -158,9 +177,16 @@ nav a.router-link-exact-active {
   align-items: center;
 }
 
+.icons > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .icon {
   color: #C5C5C5;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .icon.mobileMenuIcon {

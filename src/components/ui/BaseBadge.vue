@@ -1,7 +1,7 @@
 <template>
-  <span class="badge" :class="type">
+  <div class="badge" :class="type">
     {{ text }}
-  </span>
+  </div>
 </template>
 
 <script>
@@ -9,7 +9,11 @@ export default {
     props: [ 'type', 'title'],
     computed: {
         text() {
-            return this.title.toUpperCase();
+            if (typeof this.title === 'number') {
+                return this.title
+            } else  {
+                return this.title.toUpperCase()
+            }
         }
     }
 }
@@ -17,16 +21,32 @@ export default {
 
 <style scoped>
 .badge {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ccc;
     color: #252525;
-    border-radius: 30px;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    margin-right: 0.5rem;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -5px;
+    right: -10px;
 }
 
-.frontend {
-    background-color: #3d008d;
+.lessThanFive {
+    background-color: #147CFF;
+    color: white;
+}
+
+.upToTen {
+    background-color: #2DCC70;
+    color: white;
+}
+
+.overTen {
+    background-color: #F42C37; 
     color: white;
 }
 </style>
