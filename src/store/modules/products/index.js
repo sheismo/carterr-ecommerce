@@ -7,7 +7,7 @@ export default {
     namespaced: true,
     state() {
        return {
-        userCartQty: 6,
+        userCartQty: 0,
         userCartItems: [],
         allProducts: [
             {

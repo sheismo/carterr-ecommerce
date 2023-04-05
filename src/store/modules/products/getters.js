@@ -10,5 +10,14 @@ export default {
     },
     userCartItems(state) {
         return state.userCartItems
+    },
+    bestsellerProducts(getters) {
+        const  products = getters.allProducts
+        const filteredProducts =  products.filter(product => {
+            if(product.name.includes('h') && product.price < 1200) {
+                return true;
+            }
+        })
+        return filteredProducts.splice(0,8)
     }
 }

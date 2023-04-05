@@ -34,7 +34,7 @@
                         <p class="plus" @click="increment">+</p>
                     </div>
                     <div class="button-div">
-                        <button  :disabled="disableButton"><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
+                        <button @click="addToCart" :disabled="disableButton"><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -92,6 +92,13 @@ export default {
             } else {
                 this.count--
             }
+        },
+        addToCart() {
+            this.$store.dispatch({
+                type: 'products/addToCart',
+                value: this.count
+            })
+            this.count = 0
         },
         next() {
             let next

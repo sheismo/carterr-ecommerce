@@ -21,7 +21,7 @@
     <div class="icons">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat class="icon" @click="goToSearch" title="click to search"/>
       <div>
-        <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" /> 
+        <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" :class="categoryOfCartItems" /> 
         <base-badge :title="noOfCartItems" :type="categoryOfCartItems"></base-badge>
       </div>
       <base-button class="login" link to="/auth" mode="login">login</base-button>
@@ -106,10 +106,8 @@ export default {
         return 'lessThanFive'
       } else if (this.noOfCartItems > 5 && this.noOfCartItems <= 10) {
         return 'upToTen'
-      } else if (this.cartItems > 10) {
+      } else  {
         return 'overTen'
-      } else {
-        return null
       }
     }
   }
@@ -193,9 +191,19 @@ nav a.router-link-exact-active {
   display: none;
 }
 
-.icon:hover,
-.icon:active {
+.lessThanFive:hover,
+.lessThanFive:active {
   color: #147BFE;
+}
+
+.upToTen:hover,
+.upToTen:active {
+  color: #2DCC70;
+}
+
+.overTen:hover,
+.overTen:active {
+    color: #F42C37; 
 }
 
 /* Styling the mobile navigation menu */
