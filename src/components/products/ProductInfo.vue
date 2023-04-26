@@ -169,7 +169,7 @@ export default {
 
 section {
     width: 95%;
-    margin: 60px auto;
+    margin: 40px auto;
     padding: 0;
 }
 
@@ -181,9 +181,9 @@ h1 {
 }
 
 .back-button {
-    margin: 20px 0;
-    width: 50px;
-    height: 50px;
+    margin: 10px 0;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
