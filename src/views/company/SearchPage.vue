@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import SearchProducts from '@/components/shop/SearchProducts.vue'
+import SearchProducts from '@/components/products/SearchProducts.vue'
 import BestsellerProducts from '@/components/products/BestsellerProducts.vue'
 
 export default {

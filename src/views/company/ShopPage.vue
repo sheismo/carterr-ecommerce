@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AllProducts from '@/components/shop/AllProducts.vue';
+import AllProducts from '@/components/products/AllProducts.vue';
 
 export default {
   name: 'ShopPage',

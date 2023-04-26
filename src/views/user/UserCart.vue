@@ -1,15 +1,26 @@
 <template>
   <div>
-    <h1>This is the User Cart</h1>
+    <all-products></all-products>
+    <my-cart></my-cart>
   </div>
 </template>
 
 <script>
-export default {
+import AllProducts from '@/components/products/AllProducts.vue';
+import MyCart from '@/components/user/MyCart.vue';
 
+export default {
+  name: 'UserCart',
+  components: {
+    AllProducts,
+    MyCart
+  }
 }
 </script>
 
 <style scoped>
-
+div {
+  height: 100vh;
+  overflow-y: hidden;
+}
 </style>

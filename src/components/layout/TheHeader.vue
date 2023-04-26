@@ -21,8 +21,10 @@
     <div class="icons">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat class="icon" @click="goToSearch" title="click to search"/>
       <div>
-        <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" :class="categoryOfCartItems" /> 
-        <base-badge :title="noOfCartItems" :type="categoryOfCartItems"></base-badge>
+        <router-link to="/cart">
+          <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" :class="categoryOfCartItems" /> 
+          <base-badge :title="noOfCartItems" :type="categoryOfCartItems"></base-badge>
+        </router-link>  
       </div>
       <base-button class="login" link to="/auth" mode="login">login</base-button>
       <font-awesome-icon icon="fa-solid fa-bars" size="sm" class="icon mobileMenuIcon" @click="toggleMobileNavBar"

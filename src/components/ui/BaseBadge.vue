@@ -35,18 +35,22 @@ export default {
     right: -10px;
 }
 
-.lessThanFive {
+.lessThanFive,
+.lessThanFive:hover {
     background-color: #147CFF;
     color: white;
 }
 
-.upToTen {
+.upToTen,
+.upToTen:hover {
     background-color: #2DCC70;
     color: white;
 }
 
-.overTen {
+.overTen,
+.overTen:hover {
     background-color: #F42C37; 
     color: white;
 }
+
 </style>

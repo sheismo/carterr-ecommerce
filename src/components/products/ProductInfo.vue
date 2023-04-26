@@ -30,11 +30,11 @@
                 <div class="counter-row">
                     <div class="counter">
                         <p class="minus" @click="decrement">-</p>
-                        <p class="count">{{ count }}</p>
+                        <p class="count" contenteditable>{{ count }}</p>
                         <p class="plus" @click="increment">+</p>
                     </div>
                     <div class="button-div">
-                        <button @click="addToCart" :disabled="disableButton"><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
+                        <button @click="addToCart(product)" :disabled="disableButton"><font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon" />Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,10 @@ export default {
             } else {
                 return false
             }
-        }
+        },
+        cartItems() {
+            return this.$store.getters['products/userCartItems']
+        },
     },
     methods: {
         increment() {
@@ -93,56 +96,70 @@ export default {
                 this.count--
             }
         },
-        addToCart() {
-            this.$store.dispatch({
-                type: 'products/addToCart',
-                value: this.count
-            })
+        addToCart(product) {
+            if (this.cartItems.some(p => p.id === product.id)) {
+                const prod = this.cartItems.find(p => p.id === product.id)
+                prod.qty += this.count
+                this.$store.dispatch('products/increaseCartQty', this.count)
+
+            } else {
+                this.$store.dispatch({
+                    type: 'products/addToCart',
+                    value: {
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        qty: this.count
+                    }
+                })
+            }
+            this.$store.dispatch('products/calculateSumTotal')
             this.count = 0
         },
-        next() {
-            let next
-            const image = this.$el.querySelector('.product-image')
-            const path = image.src
-            const start = path.indexOf('image')
-            const end = start + 5
-            // console.log(image, path, start, end)
-            const current = path.charAt(end)
-            if (parseInt(current) === 4) {
-                next = 0
-            } else {
-                next = parseInt(current) + 1
-            }
-            // console.log(current, next)
-            image.src = this.mobileImages[next].src
-        },
-        prev() {
-            let prev
-            const image = this.$el.querySelector('.product-image')
-            const path = image.src
-            const start = path.indexOf('image')
-            const end = start + 5
-            const current = path.charAt(end)
-            if (parseInt(current) === 0) {
-                prev = 4
-            } else {
-                prev = parseInt(current) - 1
-            }
-            // console.log(current, prev)
-            image.src = this.mobileImages[prev].src
-        },
-        goBack () {
+        goBack() {
             // window.history.back()
             this.$router.go(-1)
         }
+        // next() {
+        //     let next
+        //     const image = this.$el.querySelector('.product-image')
+        //     const path = image.src
+        //     const start = path.indexOf('image')
+        //     const end = start + 5
+        //     // console.log(image, path, start, end)
+        //     const current = path.charAt(end)
+        //     if (parseInt(current) === 4) {
+        //         next = 0
+        //     } else {
+        //         next = parseInt(current) + 1
+        //     }
+        //     // console.log(current, next)
+        //     image.src = this.mobileImages[next].src
+        // },
+        // prev() {
+        //     let prev
+        //     const image = this.$el.querySelector('.product-image')
+        //     const path = image.src
+        //     const start = path.indexOf('image')
+        //     const end = start + 5
+        //     const current = path.charAt(end)
+        //     if (parseInt(current) === 0) {
+        //         prev = 4
+        //     } else {
+        //         prev = parseInt(current) - 1
+        //     }
+        //     // console.log(current, prev)
+        //     image.src = this.mobileImages[prev].src
+        // },
     },
-    mounted() {
-        this.$el.querySelectorAll('.small-product-image').forEach(el => {
-            el.addEventListener('click', () => {
-                this.$el.querySelector('.product-image').src = this.images[el.id].src
-            })
-        })
-    }
+    // mounted() {
+    //     this.$el.querySelectorAll('.small-product-image').forEach(el => {
+    //         el.addEventListener('click', () => {
+    //             this.$el.querySelector('.product-image').src = this.images[el.id].src
+    //         })
+    //     })
+    // }
 }
 </script>
 
@@ -334,7 +351,7 @@ button {
 
 button:hover {
     box-shadow: #FCE7D8 0px 7px 25px 10px;
-    transform: scale(1.01)
+    transform: scale(1.01);
 }
 
 button:disabled,

@@ -6,10 +6,10 @@ export default {
         return state.allProducts && state.allProducts.length > 0
     },
     userCartQty(state) {
-        return state.userCartQty
+        return state.cart.qty
     },
     userCartItems(state) {
-        return state.userCartItems
+        return state.cart.items
     },
     bestsellerProducts(getters) {
         const  products = getters.allProducts
@@ -19,5 +19,8 @@ export default {
             }
         })
         return filteredProducts.splice(0,8)
+    },
+    sumTotal(state) {
+        return state.cart.sumTotal
     }
 }

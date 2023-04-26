@@ -1,11 +1,11 @@
 <template>
-  <the-header v-if="!authPageActive"></the-header>
+  <the-header v-if="!noHeaderPage"></the-header>
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in">
       <component :is="slotProps.Component"></component>
     </transition>
   </router-view>
-  <the-footer v-if="!authPageActive"></the-footer>
+  <the-footer v-if="!noFooterPage"></the-footer>
 </template>
 
 <script>
@@ -18,8 +18,11 @@ export default {
     TheFooter
   },
   computed: {
-    authPageActive() {
-      return this.$route.path === '/auth'
+    noHeaderPage() {
+      return this.$route.path === '/auth' || this.$route.path === '/cart'
+    },
+    noFooterPage() {
+      return this.$route.path === '/auth' || this.$route.path === '/cart'
     }
   }
 }
