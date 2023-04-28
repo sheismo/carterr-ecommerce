@@ -1,5 +1,8 @@
 <template>
     <section>
+        <base-alert mode="success" v-if="showAlert">
+            Successfully added {{ noOfItemsAddedToCart }} pcs of {{ product.name }} to cart
+        </base-alert>
         <div class="back-button" title="Click to go to previous page" @click="goBack">
             <font-awesome-icon icon="fa-solid fa-arrow-left"  size="sm" class="icon" />
         </div>
@@ -49,6 +52,8 @@ export default {
     data() {
         return {
             count: 0,
+            noOfItemsAddedToCart: 0,
+            showAlert: false
             // images: [
             //     { id: 0, src: require('@/assets/image0.jpg'), alt: 'Product Image', class: 'small-product-image' },
             //     { id: 1, src: require('@/assets/image1.jpg'), alt: 'Product Image', class: 'small-product-image' },
@@ -115,7 +120,12 @@ export default {
                 })
             }
             this.$store.dispatch('products/calculateSumTotal')
+            this.noOfItemsAddedToCart = this.count
             this.count = 0
+            this.showAlert = true
+            setTimeout(() => {
+                this.showAlert = false
+            }, 1500)
         },
         goBack() {
             // window.history.back()
