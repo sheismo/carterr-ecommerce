@@ -3,19 +3,15 @@
     <div v-if="show" @click="tryClose" class="backdrop"></div>
     <transition>
       <dialog open v-if="show">
-        <header>
-          <slot name="header">
-            <h2>{{ title }}</h2>
-          </slot>
+        <header :class="mode">
+            <h2>{{ message }}</h2>
         </header>
+        <section v-if="loading">
+          <base-spinner></base-spinner>
+        </section>
         <section>
           <slot></slot>
         </section>
-        <menu v-if="!fixed">
-          <slot name="actions">
-            <base-button @click="tryClose">Close</base-button>
-          </slot>
-        </menu>
       </dialog>
     </transition>
   </teleport>
@@ -28,22 +24,23 @@ export default {
       type: Boolean,
       required: true,
     },
-    title: {
+    message: {
       type: String,
-      required: false,
+      required: true,
     },
-    fixed: {
+    loading: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true
     },
+    mode: {
+      type: String,
+      required: false,
+    }
   },
   emits: ['close'],
   methods: {
     tryClose() {
-      if (this.fixed) {
-        return;
-      }
       this.$emit('close');
     },
   },
@@ -58,7 +55,7 @@ export default {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  z-index: 10;
+  z-index: 20;
 }
 
 dialog {
@@ -77,25 +74,30 @@ dialog {
 }
 
 header {
-  background-color: #3a0061;
-  color: white;
   width: 100%;
   padding: 1rem;
+  color: white;
+}
+
+header.primary {
+   background-color: #147BFE;
+}
+
+header.success {
+   background-color: #2DCC70;
+}
+
+header.danger {
+   background-color: #EF2E3B;
 }
 
 header h2 {
   margin: 0;
+  font-weight: 500;
 }
 
 section {
   padding: 1rem;
-}
-
-menu {
-  padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
-  margin: 0;
 }
 
 .dialog-enter-from,

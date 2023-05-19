@@ -19,10 +19,10 @@ export default {
   },
   computed: {
     noHeaderPage() {
-      return this.$route.path === '/auth' || this.$route.path === '/cart'
+      return this.$route.path === '/auth' || this.$route.path === '/cart' || this.$route.path === '/checkout'
     },
     noFooterPage() {
-      return this.$route.path === '/auth' || this.$route.path === '/cart'
+      return this.$route.path === '/auth' || this.$route.path === '/cart' || this.$route.path === '/checkout'
     }
   }
 }

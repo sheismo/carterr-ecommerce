@@ -9,7 +9,6 @@
                 <div>
                     <p>My Cart  -  <span>{{ noOfCartItems }}</span> items.</p>
                 </div>
-
             </div>
 
             <div v-if="notEmptyCart" class="items">
@@ -60,14 +59,19 @@
                 <p>Hi, you currently do not have any items in your cart.</p>
                 <base-button link to="/shop" mode="red">Start shopping</base-button>
             </div>
-            
         </div>
     </section>
 </template>
 
 <script>
 export default {
-    name: 'MyCart',
+    name: 'TheCart',
+    data() {
+        this.publishableKey = 'pk_test_51N47sxJ5hfFcchJkjxzyyDXYRoHtRunGCtH0rSK2Why9PfwP6arNsfhBmtFPVvqDiPgRYqCjZlwSqjl6N0hxZ3Zt00n9I7NBJg'
+        return {
+            // loading: false,
+        }
+    },
     computed: {
         noOfCartItems() {
             return this.$store.getters['products/userCartQty']
@@ -80,7 +84,7 @@ export default {
         },
         sumTotal() {
             return this.$store.getters['products/sumTotal']
-        }
+        },
     },
     methods: {
         goBack() {
@@ -142,7 +146,6 @@ export default {
 }
 
 /* cart-heading */
-
 .title{
     margin: 0 0 20px;
     display: flex;

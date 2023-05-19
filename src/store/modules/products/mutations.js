@@ -22,6 +22,9 @@ export default {
             totalPrice += itemTotal
         }
         state.cart.sumTotal = totalPrice.toFixed(2)
+    },
+    emptyUserCart(state) {
+        state.cart.qty = 0
+        state.cart.items = []
     }
-
 }

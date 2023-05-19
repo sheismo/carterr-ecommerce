@@ -13,5 +13,8 @@ export default {
     },
     calculateSumTotal(context) {
         context.commit('calculateSumTotal')
+    },
+    emptyUserCart(context) {
+        context.commit('emptyUserCart')
     }
 }

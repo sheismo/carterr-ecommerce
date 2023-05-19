@@ -1,19 +1,20 @@
 <template>
   <div>
     <all-products></all-products>
-    <my-cart></my-cart>
+    <the-cart></the-cart>
   </div>
+  
 </template>
 
 <script>
-import AllProducts from '@/components/products/AllProducts.vue';
-import MyCart from '@/components/user/MyCart.vue';
+import AllProducts from '@/components/products/AllProducts.vue'
+import TheCart from '@/components/user/TheCart.vue'
 
 export default {
   name: 'UserCart',
   components: {
     AllProducts,
-    MyCart
+    TheCart
   }
 }
 </script>
