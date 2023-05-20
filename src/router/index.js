@@ -15,7 +15,7 @@ const AboutPage =  () => import('../views/company/AboutPage.vue')
 const NotFound = () => import('../views/NotFound.vue')
 
 const routes = [
-  { path: '/', name: 'home', component: HomePage },
+  { path: '/', name: 'home', component: HomePage, alias: '/home'},
   { path: '/about', name: 'about', component: AboutPage },
   { path: '/shop', name: 'shop', component: ShopPage },
   { path: '/shop/:id', name: 'product', component: ProductPage, props: true },

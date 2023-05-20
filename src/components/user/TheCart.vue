@@ -7,7 +7,7 @@
                     <font-awesome-icon icon="fa-solid fa-arrow-left"  size="sm" class="icon" />
                 </div>
                 <div>
-                    <p>My Cart  -  <span>{{ noOfCartItems }}</span> items.</p>
+                    <p>My Cart  -  <span>{{ noOfCartItems }}</span> item(s).</p>
                 </div>
             </div>
 
@@ -64,27 +64,22 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
     name: 'TheCart',
     data() {
-        this.publishableKey = 'pk_test_51N47sxJ5hfFcchJkjxzyyDXYRoHtRunGCtH0rSK2Why9PfwP6arNsfhBmtFPVvqDiPgRYqCjZlwSqjl6N0hxZ3Zt00n9I7NBJg'
         return {
             // loading: false,
         }
     },
     computed: {
-        noOfCartItems() {
-            return this.$store.getters['products/userCartQty']
-        },
-        cartItems() {
-            return this.$store.getters['products/userCartItems']
-        },
-        notEmptyCart() {
-            return this.cartItems && this.cartItems.length > 0
-        },
-        sumTotal() {
-            return this.$store.getters['products/sumTotal']
-        },
+        ...mapGetters('products', {
+            noOfCartItems: 'userCartQty',
+            cartItems: 'userCartItems',
+            sumTotal: 'sumTotal',
+            notEmptyCart: 'notEmptyCart'
+        })
     },
     methods: {
         goBack() {
@@ -99,14 +94,12 @@ export default {
         },
         decrement(id) {
             const product = this.cartItems.find(product => product.id === id)
-            if (product.qty === 0) {
+            if (product.qty === 1) {
                 this.$store.dispatch('products/removeItemFromCart', id)
-                this.$store.dispatch('products/calculateSumTotal')
-            } else {
-                product.qty -= 1
-                this.$store.dispatch('products/reduceCartQty', 1)
-                this.$store.dispatch('products/calculateSumTotal')
             }
+            product.qty -= 1
+            this.$store.dispatch('products/reduceCartQty', 1)
+            this.$store.dispatch('products/calculateSumTotal')
         },
         removeItem(id) {
             const product = this.cartItems.find(product => product.id === id)
@@ -219,7 +212,7 @@ li {
 
 .image {
     max-width: 90%;
-    height: auto;
+    max-height: 90%;
 }
 
 .product-info {
@@ -229,7 +222,7 @@ li {
 
 .product-info p {
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
@@ -374,6 +367,7 @@ button {
 
     li {
         padding: 10px;
+        max-height: 220px;
     }
 
     .product-info p {
@@ -393,6 +387,10 @@ button {
     button {
         padding: 5px;
         font-size: 0.7rem;
+    }
+
+    .actions {
+        display: block;
     }
 }
 

@@ -125,6 +125,10 @@ img {
     height: auto;
 }
 
+img:hover {
+    transform: scale(1.02);
+}
+
 /* iPads and laptop screens */
 @media (min-width: 769px) and (max-width: 1024px) {
     .card {

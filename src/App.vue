@@ -54,11 +54,11 @@ body {
 }
 
 .route-enter-active {
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 .route-leave-active {
-  transition: all 0.5s ease-in;
+  transition: all 0.4s ease-in;
 }
 
 .route-enter-to,

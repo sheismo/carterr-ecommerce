@@ -101,15 +101,18 @@ export default {
   },
   computed : {
     noOfCartItems() {
-      return this.$store.getters['products/userCartQty']
+      const noOfItems = this.$store.getters['products/userCartQty']
+      return  noOfItems > 99 ? '99+' : noOfItems
     },
     categoryOfCartItems() {
       if (this.noOfCartItems >= 0 && this.noOfCartItems <= 5) {
         return 'lessThanFive'
       } else if (this.noOfCartItems > 5 && this.noOfCartItems <= 10) {
         return 'upToTen'
-      } else  {
+      } else if (this.noOfCartItems > 10 && this.noOfCartItems <= 99)  {
         return 'overTen'
+      } else {
+        return 'overTen overNinetyNine'
       }
     }
   }
@@ -258,6 +261,10 @@ nav a.router-link-exact-active {
 
 .mobile-menu .mIcon {
   font-size: 1.2rem;
+}
+
+.mobile-menu span {
+  text-align: center;
 }
 
 /* iPads and laptop screens */

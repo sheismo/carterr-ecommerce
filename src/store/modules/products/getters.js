@@ -22,5 +22,8 @@ export default {
     },
     sumTotal(state) {
         return state.cart.sumTotal
+    },
+    notEmptyCart(state) {
+        return state.cart.items && state.cart.items.length > 0
     }
 }

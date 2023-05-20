@@ -35,6 +35,12 @@ export default {
     right: -10px;
 }
 
+.overNinetyNine {
+    width: 20px;
+    height: 20px;
+    font-size: 0.6rem;
+}
+
 .lessThanFive,
 .lessThanFive:hover {
     background-color: #147CFF;
