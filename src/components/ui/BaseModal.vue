@@ -94,6 +94,7 @@ header.danger {
 header h2 {
   margin: 0;
   font-weight: 500;
+  font-size: 1rem;
 }
 
 section {
@@ -125,5 +126,10 @@ section {
     left: calc(50% - 20rem);
     width: 40rem;
   }
+
+  /* header h2 {
+  margin: 0;
+  font-weight: 500;
+} */
 }
 </style>
