@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="stickyHeader">
     <!-- Brand Name or Logo -->
     <div class="hello">
       <base-button link  to="/">
@@ -80,6 +80,13 @@
 <script>
 export default {
   name: 'TheHeader',
+  props: {
+    stickyHeader: {
+      type: String,
+      required: true,
+      default: ''
+    },
+  },
   data() {
     return {
       name: 'Carterr',
@@ -129,6 +136,7 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #FFF;
 }
 
 header h1 {
@@ -329,5 +337,14 @@ nav a.router-link-exact-active {
     display: inline-flex;
     color: #EF2E3B;
   }
+}
+
+/* style rules for sticky header */
+header.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  border-bottom: 1px solid #DCDCDC;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <the-header v-if="!noHeaderPage"></the-header>
+  <the-header v-if="!noHeaderPage" :stickyHeader="stickyHeader"></the-header>
 
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in">
@@ -19,6 +19,11 @@ import TheHeader from './components/layout/TheHeader.vue'
 import TheFooter from './components/layout/TheFooter.vue'
 
 export default {
+  data() {
+    return {
+      stickyHeader: ''
+    }
+  },
   components: {
     TheHeader,
     TheFooter
@@ -38,14 +43,20 @@ export default {
     },
     handleScroll() {
       if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        this.$refs.scrollButton.style.display = "block";
+        this.$refs.scrollButton.style.display = 'block'
       } else {
-        this.$refs.scrollButton.style.display = "none";
+        this.$refs.scrollButton.style.display = 'none'
+      }
+
+      if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        this.stickyHeader = 'sticky'
+      } else {
+        this.stickyHeader = ''
       }
     }
   },
   created() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 }
 </script>
