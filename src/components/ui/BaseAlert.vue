@@ -25,7 +25,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 25;
+    z-index: 45;
 }
 .alert {
     width: 100%;
@@ -36,7 +36,7 @@ export default {
     left: 0;
     text-align: center;
     color: #FFF;
-    z-index: 20;
+    z-index: 44;
 }
 
 .alert.primary {

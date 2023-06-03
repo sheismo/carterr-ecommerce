@@ -222,12 +222,14 @@ h1 {
 
 .image {
     width: 100%;
-    position: relative;
+    text-align: center;
 }
 
 .product-image {
-    width: 100%;
+    width: 90%;
     height: auto;
+    max-height: 90%;
+    margin: 0 auto;
 }
 
 .images {
@@ -458,6 +460,7 @@ button[disabled]{
     
     button {
         padding: 15px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -489,6 +492,7 @@ button[disabled]{
     }
 }
 
+/* laptops & big screens */
 @media (min-width: 1025px) {
     section {
         width: 75%;

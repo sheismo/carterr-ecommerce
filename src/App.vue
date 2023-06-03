@@ -9,7 +9,7 @@
 
   <the-footer v-if="!noFooterPage"></the-footer>
 
-  <button @click="scrollUp()" class="scroll" ref="scrollButton">
+  <button @click="scrollUp()" class="scroll" v-if="showScrollButton">
     <font-awesome-icon icon="fa-solid fa-arrow-up" size="sm" class="icon" :class="categoryOfCartItems" /> 
   </button>
 </template>
@@ -21,7 +21,8 @@ import TheFooter from './components/layout/TheFooter.vue'
 export default {
   data() {
     return {
-      stickyHeader: ''
+      stickyHeader: '',
+      showScrollButton: false
     }
   },
   components: {
@@ -42,21 +43,28 @@ export default {
       document.documentElement.scrollTop = 0
     },
     handleScroll() {
-      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        this.$refs.scrollButton.style.display = 'block'
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        this.showScrollButton = true
       } else {
-        this.$refs.scrollButton.style.display = 'none'
+        this.showScrollButton = false
       }
 
-      if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        this.stickyHeader = 'sticky'
-      } else {
-        this.stickyHeader = ''
-      }
+      if (this.$route.path !== '/contact-us')
+        if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          this.stickyHeader = 'sticky'
+        } else {
+          this.stickyHeader = ''
+        }
     }
   },
   created() {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  mounted() {
+    setTimeout(() => {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    }, 300);
   }
 }
 </script>
@@ -70,6 +78,7 @@ export default {
 
 html {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -107,13 +116,13 @@ body {
 
 button.scroll {
   /* display: none; */
-  width: 50px;
-  height: 50px;
-  padding: 15px; 
+  width: 45px;
+  height: 45px;
+  padding: 10px; 
   position: fixed;
   bottom: 20px;
   right: 30px;
-  z-index: 99;
+  z-index: 48;
   outline: none;
   border: none;
   border-radius: 50%;
@@ -132,11 +141,10 @@ button.scroll:hover {
   background-color: #555;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   button.scroll {
-    width: 70px;
-    height: 70px; 
-    padding: 10px;
+    width: 50px;
+    height: 50px; 
   }
 
   button.scroll .icon {

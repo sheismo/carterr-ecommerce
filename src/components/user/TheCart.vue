@@ -194,8 +194,8 @@ ul {
 
 li {
     width: 100%;
-    max-height: 200px;
-    padding: 20px;
+    height: 150px;
+    padding: 15px;
     margin: 10px 0;
     list-style: none;
     display: flex;
@@ -212,7 +212,8 @@ li {
 
 .image {
     max-width: 90%;
-    max-height: 90%;
+    height: 120px;
+    max-height: 120px;
 }
 
 .product-info {
@@ -333,8 +334,14 @@ button {
     }
 
     li {
+        height: 130px;
         padding: 10px;
         align-items: center;
+    }
+
+    .image {
+        height: 100px;
+        max-height: 100px;
     }
 
     .product-info p {
@@ -352,10 +359,9 @@ button {
     }
 
     button {
-        padding: 5px;
-        font-size: 0.8rem;
+        padding: 10px;
+        font-size: 0.9rem;
     }
-
 }
 
 /* Mobile screens styling */
@@ -366,8 +372,13 @@ button {
     }
 
     li {
+        height: 120px;
         padding: 10px;
-        max-height: 220px;
+    }
+
+    .image {
+        height: 90px;
+        max-height: 90px;
     }
 
     .product-info p {
@@ -385,8 +396,8 @@ button {
     }
 
     button {
-        padding: 5px;
-        font-size: 0.7rem;
+        padding: 10px;
+        font-size: 0.9rem;
     }
 
     .actions {

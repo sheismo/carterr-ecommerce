@@ -112,11 +112,12 @@ export default {
       return  noOfItems > 99 ? '99+' : noOfItems
     },
     categoryOfCartItems() {
-      if (this.noOfCartItems >= 0 && this.noOfCartItems <= 5) {
+      const noOfItems = this.$store.getters['products/userCartQty']
+      if (noOfItems >= 0 && noOfItems <= 5) {
         return 'lessThanFive'
-      } else if (this.noOfCartItems > 5 && this.noOfCartItems <= 10) {
+      } else if (noOfItems > 5 && noOfItems <= 10) {
         return 'upToTen'
-      } else if (this.noOfCartItems > 10 && this.noOfCartItems <= 99)  {
+      } else if (noOfItems > 10 && noOfItems <= 99)  {
         return 'overTen'
       } else {
         return 'overTen overNinetyNine'
@@ -228,7 +229,7 @@ nav a.router-link-exact-active {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  z-index: 10;
+  z-index: 50;
 }
 
 .mobile-menu nav{
@@ -237,7 +238,7 @@ nav a.router-link-exact-active {
   right: 0;
   width: 30%;
   height: 100vh;
-  z-index: 20;
+  z-index: 49;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0;
   margin: 0;
@@ -344,7 +345,7 @@ header.sticky {
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 40;
   border-bottom: 1px solid #DCDCDC;
 }
 </style>
