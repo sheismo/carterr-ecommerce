@@ -4,7 +4,7 @@ import productsModule from './modules/products/index.js'
 
  const store = createStore({
   state: {
-    paystackKey: 'pk_test_3183a38290015f031e5cc3b6b8fb3d1f20560fa0'
+    paystackKey: process.env.VUE_APP_PAYSTACK_KEY
   },
   getters: {
     paystackKey(state) {

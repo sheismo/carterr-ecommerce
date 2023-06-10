@@ -120,12 +120,13 @@ export default {
                 })
             }
             this.$store.dispatch('products/calculateSumTotal')
+            this.$store.dispatch('products/saveCartData')
             this.noOfItemsAddedToCart = this.count
             this.count = 0
             this.showAlert = true
             setTimeout(() => {
                 this.showAlert = false
-            }, 1500)
+            }, 1500)          
         },
         goBack() {
             // window.history.back()

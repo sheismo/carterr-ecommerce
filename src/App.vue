@@ -59,6 +59,7 @@ export default {
   },
   created() {
     window.addEventListener('scroll', this.handleScroll)
+    this.$store.dispatch('products/getCartData')
   },
   mounted() {
     setTimeout(() => {

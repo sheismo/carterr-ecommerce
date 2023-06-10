@@ -1,7 +1,7 @@
 export default {
     addToCart(state, payload) {
         state.cart.qty += payload.value.qty
-        state.cart.items.push(payload.value)
+        state.cart.items.push(payload.value)  
     },
     increaseCartQty(state, payload) {
         state.cart.qty += payload
@@ -26,5 +26,14 @@ export default {
     emptyUserCart(state) {
         state.cart.qty = 0
         state.cart.items = []
+    },
+    saveCartData(state) {
+        window.localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+    getCartData(state) {
+        let newCartData = window.localStorage.getItem('cart')
+        newCartData = newCartData === [] ? [] : newCartData
+
+        state.cart = JSON.parse(newCartData)
     }
 }

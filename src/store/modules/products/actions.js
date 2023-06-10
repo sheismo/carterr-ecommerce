@@ -16,5 +16,11 @@ export default {
     },
     emptyUserCart(context) {
         context.commit('emptyUserCart')
+    },
+    saveCartData(context) {
+        context.commit('saveCartData')
+    },
+    getCartData(context) {
+        context.commit('getCartData')
     }
 }
