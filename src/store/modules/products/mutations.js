@@ -24,16 +24,21 @@ export default {
         state.cart.sumTotal = totalPrice.toFixed(2)
     },
     emptyUserCart(state) {
-        state.cart.qty = 0
-        state.cart.items = []
+        state.cart = {
+            qty: 0,
+            items: [],
+            sumTotal: 0
+        }
+        window.localStorage.setItem('cart', JSON.stringify(state.cart))
+        // this.saveCartData()
     },
     saveCartData(state) {
         window.localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     getCartData(state) {
-        let newCartData = window.localStorage.getItem('cart')
-        newCartData = newCartData === [] ? [] : newCartData
+        let newCartData = JSON.parse(window.localStorage.getItem('cart'))
+        newCartData = newCartData === {} ? {} : newCartData
 
-        state.cart = JSON.parse(newCartData)
+        state.cart = newCartData
     }
 }

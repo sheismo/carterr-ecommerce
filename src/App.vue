@@ -10,7 +10,7 @@
   <the-footer v-if="!noFooterPage"></the-footer>
 
   <button @click="scrollUp()" class="scroll" v-if="showScrollButton">
-    <font-awesome-icon icon="fa-solid fa-arrow-up" size="sm" class="icon" :class="categoryOfCartItems" /> 
+    <font-awesome-icon icon="fa-solid fa-arrow-up" size="sm" class="icon"/> 
   </button>
 </template>
 
@@ -63,8 +63,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
+      this.scrollUp()
     }, 300);
   }
 }
