@@ -1,7 +1,7 @@
 <template>
     <section>
         <base-alert mode="success" v-if="showAlert">
-            Successfully added {{ noOfItemsAddedToCart }} pcs of {{ product.name }} to cart
+            Successfully added {{ count }} pcs of {{ product.name }} to cart
         </base-alert>
         <div class="back-button" title="Click to go to previous page" @click="goBack">
             <font-awesome-icon icon="fa-solid fa-arrow-left"  size="sm" class="icon" />
@@ -105,8 +105,6 @@ export default {
             if (this.cartItems.some(p => p.id === product.id)) {
                 const prod = this.cartItems.find(p => p.id === product.id)
                 prod.qty += this.count
-                this.$store.dispatch('products/increaseCartQty', this.count)
-
             } else {
                 this.$store.dispatch({
                     type: 'products/addToCart',
@@ -119,9 +117,6 @@ export default {
                     }
                 })
             }
-            this.$store.dispatch('products/calculateSumTotal')
-            this.$store.dispatch('products/saveCartData')
-            this.noOfItemsAddedToCart = this.count
             this.count = 0
             this.showAlert = true
             setTimeout(() => {
@@ -129,7 +124,6 @@ export default {
             }, 1500)          
         },
         goBack() {
-            // window.history.back()
             this.$router.go(-1)
         }
         // next() {

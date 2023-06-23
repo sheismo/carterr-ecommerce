@@ -81,6 +81,11 @@ export default {
             notEmptyCart: 'notEmptyCart'
         })
     },
+    watch: {
+        noOfCartItems() {
+            this.$store.dispatch('products/saveCartData')
+        }
+    },
     methods: {
         goBack() {
             window.history.back()
@@ -89,9 +94,6 @@ export default {
         increment(id) {
             const product = this.cartItems.find(product => product.id === id)
             product.qty += 1
-            this.$store.dispatch('products/increaseCartQty', 1)
-            this.$store.dispatch('products/calculateSumTotal')
-            this.$store.dispatch('products/saveCartData')
         },
         decrement(id) {
             const product = this.cartItems.find(product => product.id === id)
@@ -99,21 +101,10 @@ export default {
                 this.$store.dispatch('products/removeItemFromCart', id)
             }
             product.qty -= 1
-            this.$store.dispatch('products/reduceCartQty', 1)
-            this.$store.dispatch('products/calculateSumTotal')
-            this.$store.dispatch('products/saveCartData')
         },
         removeItem(id) {
-            const product = this.cartItems.find(product => product.id === id)
             this.$store.dispatch('products/removeItemFromCart', id)
-            this.$store.dispatch('products/reduceCartQty',product.qty)
-            this.$store.dispatch('products/calculateSumTotal')
-            this.$store.dispatch('products/saveCartData')
         }
-    },
-    mounted() {
-        this.$store.dispatch('products/calculateSumTotal')
-        this.$store.dispatch('products/getCartData')
     }
 }
 </script>

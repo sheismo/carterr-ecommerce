@@ -30,11 +30,19 @@ export default {
     TheFooter
   },
   computed: {
+    cart() {
+      return this.$store.getters['products/userCartQty']
+    },
     noHeaderPage() {
       return this.$route.path === '/auth' || this.$route.path === '/cart' || this.$route.path === '/checkout'
     },
     noFooterPage() {
       return this.$route.path === '/auth' || this.$route.path === '/cart' || this.$route.path === '/checkout'
+    }
+  },
+  watch: {
+    cart() {
+        this.$store.dispatch('products/saveCartData')
     }
   },
   methods: {
@@ -60,6 +68,7 @@ export default {
   created() {
     window.addEventListener('scroll', this.handleScroll)
     this.$store.dispatch('products/getCartData')
+    // localStorage.removeItem('cart')
   },
   mounted() {
     setTimeout(() => {
@@ -83,6 +92,9 @@ html {
 
 body {
   margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .route-enter-from {

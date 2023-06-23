@@ -6,7 +6,11 @@ export default {
         return state.allProducts && state.allProducts.length > 0
     },
     userCartQty(state) {
-        return state.cart.qty
+        let totalQty = 0
+        for (const item of state.cart.items) {
+            totalQty += item.qty
+        }
+        return totalQty
     },
     userCartItems(state) {
         return state.cart.items
@@ -21,7 +25,12 @@ export default {
         return filteredProducts.splice(0,8)
     },
     sumTotal(state) {
-        return state.cart.sumTotal
+        let totalPrice = 0
+        for (const item of state.cart.items) {
+            const itemTotal = item.qty * item.price
+            totalPrice += itemTotal
+        }
+        return totalPrice.toFixed(2)
     },
     notEmptyCart(state) {
         return state.cart.items && state.cart.items.length > 0

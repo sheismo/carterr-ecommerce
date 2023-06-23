@@ -7,24 +7,8 @@ export default {
     namespaced: true,
     state() {
        return {
-        // cartQty: 0,
-        // cartItems: [],
         cart: {
-            qty: 0,
-            items: [
-                // {
-                //     id: '01',
-                //     category: 'laptops',
-                //     name: 'HP Chromebook 15a',
-                //     qty: 5,
-                //     price: 1029,
-                //     description: 
-                //     'The perfect ultra thin, lightweight, and compact computer with great power of portability to keep you connected anywhere you go. Intel Pentium Silver Processor and Intel UHD graphics with 15.6" diagonal display',
-                //     image: require('@/assets/products-images/laptops/hpchromebook.png'),
-                //     discount: true
-                // }
-            ],
-            sumTotal: 0
+            items: []
         },
         allProducts: [
             {

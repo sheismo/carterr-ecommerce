@@ -29,7 +29,7 @@ export default {
     name: 'AboutUs',
     data() {
         return {
-            mobileScreen: true
+            mobileScreen: null
         }
     },
     methods: {
@@ -47,9 +47,8 @@ export default {
         }
     },
     created() {
-        setInterval(() => {
-            this.isMobileScreen()
-        }, 500)
+        this.isMobileScreen()
+        window.addEventListener('resize', this.isMobileScreen)
     }
 
 }

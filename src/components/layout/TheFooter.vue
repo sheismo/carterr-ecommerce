@@ -67,10 +67,10 @@ export default {
 /* Desktop screens styling */
 footer {
     width: 75%;
-    margin: 5% auto 2%;
+    margin: auto auto 2%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 .first, .second, .third {
