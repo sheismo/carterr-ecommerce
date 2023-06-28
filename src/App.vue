@@ -1,6 +1,5 @@
 <template>
   <the-header v-if="!noHeaderPage" :stickyHeader="stickyHeader"></the-header>
-
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in">
       <component :is="slotProps.Component"></component>
@@ -17,6 +16,9 @@
 <script>
 import TheHeader from './components/layout/TheHeader.vue'
 import TheFooter from './components/layout/TheFooter.vue'
+import { collection } from 'firebase/firestore'
+import { db } from '@/firebase/init.js'
+// import data from '@/firebase/data.js' 
 
 export default {
   data() {
@@ -68,7 +70,10 @@ export default {
   created() {
     window.addEventListener('scroll', this.handleScroll)
     this.$store.dispatch('products/getCartData')
-    // localStorage.removeItem('cart')
+    this.$store.dispatch({
+      type: 'products/getProducts',
+      value: collection(db, 'products')
+    })
   },
   mounted() {
     setTimeout(() => {

@@ -4,7 +4,7 @@
         <div v-if="isLoading">
             <base-spinner></base-spinner>
         </div>
-        <div v-else-if="hasProducts" class="products">
+        <div v-if="hasProducts && !isLoading" class="products">
             <div v-if="phones">
                 <h2>PHONES</h2>
                 <div class="items">
@@ -33,8 +33,8 @@
                 </div>
             </div>
         </div>
-        <div v-else>
-            <h3>No Products Available In The Shop Yet</h3>
+        <div v-if="!hasProducts && !isLoading">
+            <h3>We are currently unable to load products.</h3>
         </div>
     </section>
 </template>
@@ -46,11 +46,6 @@ export default {
     name: 'AllProducts',
     components: {
         ProductItem
-    },
-    data() {
-        return {
-            isLoading: false
-        }
     },
     computed: {
         laptops() {
@@ -83,6 +78,9 @@ export default {
         },
         hasProducts() {
             return this.$store.getters['products/hasProducts']
+        },
+        isLoading() {
+            return this.$store.getters['products/isLoadingProducts']
         }
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="product" @click="viewProduct()">
         <base-card class="card">
-            <img :src="product.image" :alt="product.name">
+            <img :src="require(`@/assets/products-images/${product.image}`)" :alt="product.name">
         </base-card>
         <div>
             <p>{{ product.name }}</p>

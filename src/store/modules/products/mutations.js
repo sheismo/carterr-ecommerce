@@ -1,3 +1,5 @@
+import { onSnapshot } from "firebase/firestore"
+
 export default {
     addToCart(state, payload) {
         state.cart.items.push(payload.value)  
@@ -16,5 +18,23 @@ export default {
     getCartData(state) {
         let newCartData = JSON.parse(window.localStorage.getItem('cart'))
         state.cart = newCartData === null ? state.cart : newCartData
+    },
+    getProducts(state, payload) {  
+        onSnapshot(payload.value, (snapshot) => {
+            const products = []
+            snapshot.forEach((doc) => {
+                const product = {
+                    id: doc.id,
+                    name: doc.data().name,
+                    category: doc.data().category,
+                    price: doc.data().price,
+                    description: doc.data().description,
+                    image: doc.data().image
+                }
+                products.push(product)
+            })
+            state.allProducts = products
+            state.isLoadingProducts = false
+        })
     }
 }

@@ -1,14 +1,14 @@
 <template>
     <section>
         <base-alert mode="success" v-if="showAlert">
-            Successfully added {{ count }} pcs of {{ product.name }} to cart
+            Successfully added {{ noOfItemsAddedToCart }} pcs of {{ product.name }} to cart
         </base-alert>
         <div class="back-button" title="Click to go to previous page" @click="goBack">
             <font-awesome-icon icon="fa-solid fa-arrow-left"  size="sm" class="icon" />
         </div>
         <div class="container">
             <div class="image">
-                <img :src="product.image" :alt="product.name" class="product-image">
+                <img :src="require(`@/assets/products-images/${product.image}`)" :alt="product.name" class="product-image">
                 <!-- <i class="bi bi-chevron-left" @click="prev"></i>
                 <i class="bi bi-chevron-right" @click="next"></i>
                 <div class="images">
@@ -117,6 +117,7 @@ export default {
                     }
                 })
             }
+            this.noOfItemsAddedToCart = this.count
             this.count = 0
             this.showAlert = true
             setTimeout(() => {

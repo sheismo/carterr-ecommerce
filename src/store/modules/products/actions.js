@@ -13,5 +13,8 @@ export default {
     },
     getCartData(context) {
         context.commit('getCartData')
+    },
+    getProducts(context, payload) {
+        context.commit('getProducts', payload)
     }
 }

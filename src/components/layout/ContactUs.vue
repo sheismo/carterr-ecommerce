@@ -13,20 +13,33 @@
     <div id="second">
         <h2><font-awesome-icon icon="fa-solid fa-address-card" size="sm" class="icon" /><span>Get in Touch</span></h2>
         <div>
-            <form action="">
+            <form action="#" @submit.prevent="sendMessage">
                 <div>
                     <label for="name"></label>
-                    <input type="text" id="name" placeholder="Your Name" required autofocus>
+                    <input type="text" id="name" name="senderName" placeholder="Your Name" required autofocus v-model="message.senderName">
                 </div>
 
                 <div>
                     <label for="email"></label>
-                    <input type="text" id="email" placeholder="Your Email" required autofocus>
+                    <input type="text" id="email" name="senderEmail" placeholder="Your Email" required autofocus v-model="message.senderEmail">
                 </div>
 
                 <div>
                     <label for="message"></label>
-                    <textarea name="message" id="" cols="30" rows="8" placeholder="Your Message" required autofocus></textarea>
+                    <textarea id="message" name="content" cols="30" rows="8" placeholder="Your Message" required autofocus v-model="message.content"></textarea>
+                </div>
+
+                <div v-if="isLoading" class="spinner">
+                    <My-spinner></My-spinner>
+                </div>
+
+                <div>
+                    <div v-if="showFeedback">
+                        <p class="feedbackMessage"><font-awesome-icon icon="fa-solid fa-check" size="sm" class="icon" />{{  feedbackMessage }}</p>
+                    </div>
+                    <div v-if="showError">
+                        <p class="errorMessage"><font-awesome-icon icon="fa-solid fa-xmark" size="sm" class="icon" />{{ errorMessage }}</p>
+                    </div>
                 </div>
 
                 <div>
@@ -50,8 +63,72 @@
 </template>
 
 <script>
-export default {
+import emailjs from '@emailjs/browser'
+import MySpinner from '../ui/MySpinner.vue'
 
+export default {
+    name: 'ContactUs',
+    components: {
+        MySpinner
+    },
+    data() {
+        return {
+            isLoading: false,
+            message: {
+                senderName: '',
+                senderEmail: '',
+                content: ''
+            },
+            showFeedback: false,
+            feedbackMessage: '',
+            showError: false,
+            errorMessage: ''
+        }
+    },
+    computed: {
+        validSenderDetails() {
+            const regex = /\S+@\S+\.\S+/
+            return this.message.senderEmail.length > 0 && regex.test(this.message.senderEmail) && this.message.senderName !== '' && this.message.content !== ''
+        },
+        emailKey() {
+            return this.$store.getters.emailKey
+        }
+    },
+    methods: {
+        async sendMessage() {
+            if (this.validSenderDetails) {                   
+                this.isLoading = true
+                try {
+                    await emailjs.send('service_q8nwyjc', 'template_8ovw9s',this.message, this.emailKey)
+
+                    this.resetForm()
+                    this.isLoading = false
+                   
+                    this.feedbackMessage = 'Message sent! Thank you for contacting Carterr'
+                    this.showFeedback = true
+                    setTimeout(() => {
+                        this.showFeedback = false
+                    }, 2000)
+                } catch (error) {
+                    this.isLoading = false
+
+                    this.errorMessage = error.text !== '' ? error.text : 'Unable to send message, please try again!'
+                    this.showError = true
+                    setTimeout(() => {
+                        this.showError = false
+                    }, 2000)
+                }           
+            }
+            
+        },
+        resetForm() {
+            this.message = {
+                senderName: '',
+                senderEmail: '',
+                content: ''
+            }
+        }
+    }
 }
 </script>
 
@@ -204,5 +281,20 @@ form input:focus, form textarea:focus {
     #second form, #second>div>div {
         width: 100%;
     }
+}
+
+.feedbackMessage {
+    color: #2DCC70;
+    font-size: 0.9rem;
+}
+
+.errorMessage {
+    color: #EF2E3B;
+    font-size: 0.9rem;
+}
+
+.spinner { 
+    position: relative;
+    padding-bottom: 15px;
 }
 </style>

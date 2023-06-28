@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="product-image">
-                            <img :src="product.image" :alt="product.name" class="image">
+                            <img :src="require(`@/assets/products-images/${product.image}`)" :alt="product.name" class="image">
                         </div>
 
                         <div class="product-info ">

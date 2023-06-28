@@ -34,5 +34,8 @@ export default {
     },
     notEmptyCart(state) {
         return state.cart.items && state.cart.items.length > 0
+    },
+    isLoadingProducts(state) {
+        return state.isLoadingProducts
     }
 }
