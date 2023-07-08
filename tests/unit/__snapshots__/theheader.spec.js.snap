@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheHeader.vue displays the brand name and action icons 1`] = `
+<header class="">
+  <!-- Brand Name or Logo -->
+  <div class="hello">
+    <base-button link="" to="/">
+      <h1 title="Click me to go to Home Page">Carterr</h1>
+    </base-button>
+  </div><!-- Navigation Menu and Links -->
+  <nav>
+    <ul>
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
+      <li>
+        <router-link to="/shop">Shop</router-link>
+      </li>
+      <li>
+        <router-link to="/about">About</router-link>
+      </li>
+      <li>
+        <router-link to="/contact-us">Contact Us</router-link>
+      </li>
+    </ul>
+  </nav><!-- Search, Menu & Cart Icons Login Button -->
+  <div class="icons">
+    <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="sm" beat="" class="icon" title="click to search"></font-awesome-icon>
+    <div>
+      <router-link to="/cart">
+        <font-awesome-icon icon="fa-solid fa-cart-shopping" size="sm" class="icon"></font-awesome-icon>
+        <base-badge></base-badge>
+      </router-link>
+    </div>
+    <base-button class="login" link="" to="/auth" mode="login">login</base-button>
+    <font-awesome-icon icon="fa-solid fa-bars" size="sm" class="icon mobileMenuIcon" title="click me to hide/show navbar"></font-awesome-icon>
+  </div>
+</header>
+<!-- Mobile Navigation Menu and Menu -->
+<!--v-if-->
+`;

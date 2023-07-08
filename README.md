@@ -1,5 +1,9 @@
 # carterr
 
+This is a E-commerce web application built with Vue.js, Vuex, CSS & Firebase. Automated Unit Testing was done with Jest.
+Page design inspiration by Mozahidul Islam Abir on Behance (https://www.behance.net/gallery/91982645/E-commerce/modules/531663383).
+Email service with email.js  (https://www.emailjs.com).
+
 ## Project setup
 ```
 npm install
