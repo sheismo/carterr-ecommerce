@@ -224,12 +224,14 @@ export default {
     mounted() {
         this.$store.dispatch('products/calculateSumTotal')
         this.generateReference()
+        console.log("PAYSTACK KEY:", this.paystackKey)
     },
     watch: {
         user: {
             deep: true,
             handler() {
                 console.log("USER DATA:", this.user)
+                console.log("PAYSTACK KEY IS:", this.paystackKey)
             }
         }
     }
