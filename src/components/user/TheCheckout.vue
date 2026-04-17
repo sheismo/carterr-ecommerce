@@ -117,9 +117,9 @@
                             :buttonClass="buttonClass"
                             buttonText="Proceed to Pay"
                             :publicKey="paystackKey"
-                            :email="user.emailAddress"
-                            :amount="parseInt((amount * 1) * 100)"
-                            :reference="reference"
+                            :email="paymentPayload.email"
+                            :amount="paymentPayload.amount"
+                            :reference="paymentPayload.reference"
                             :onSuccess="onSuccessfulPayment"
                             :onCancel="onCancelledPayment"
                         ></paystack>
@@ -151,6 +151,7 @@ export default {
                 deliveryAddress: '',
                 shippingMode: ''
             },
+            paymentReference: ''
         }
     },
     components: {
@@ -162,6 +163,15 @@ export default {
             cartItems: 'products/userCartItems',
             sumTotal: 'products/sumTotal'
         }),
+        paymentPayload() {
+            const payload = {
+                email: this.user.emailAddress,
+                amount: parseInt((this.amount * 1) * 100),
+                reference: this.paymentReference
+            }
+            console.log("PAYSTACK PAYLOAD:", payload)
+            return payload
+        },
         shippingFee() {
             if (this.user.shippingMode === "free") return 0
             if (this.user.shippingMode === "standard") return 25
@@ -177,13 +187,6 @@ export default {
         },
         validShippingDetails() {
             return this.user.shippingMode !== ''
-        },
-        reference() {
-            let text = ""
-            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-            for (let i = 0; i < 10; i++)
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-            return text;
         },
         buttonClass() {
             const allValid = !this.validDeliveryDetails || !this.validShippingDetails ? 'disabled ' : ''
@@ -208,10 +211,27 @@ export default {
                 deliveryAddress: '',
                 shippingMode: ''
             }
+        },
+        generateReference() {
+            let text = ""
+            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+            for (let i = 0; i < 10; i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            this.paymentReference = text
         }
     },
     mounted() {
         this.$store.dispatch('products/calculateSumTotal')
+        this.generateReference()
+    },
+    watch: {
+        user: {
+            deep: true,
+            handler() {
+                console.log("USER DATA:", this.user)
+            }
+        }
     }
 }
 </script>
